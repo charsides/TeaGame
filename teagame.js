@@ -150,6 +150,13 @@ function resetPlayers() {
     loser.innerHTML = "";
     pick.innerHTML = "Pick a brewer";
     preGame.style.display = "block";
+    fetchData(api + apiKey + coffee)
+        .then(data => {
+            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
+            chosenGif = data.data[randomGifNumber].images.original.url;
+            generateGif(chosenGif);
+            console.log(data);
+        })
 }
 
 // event listener for when 'Refresh list' is clicked, the resetPlayers function is called
