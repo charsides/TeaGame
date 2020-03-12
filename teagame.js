@@ -13,7 +13,7 @@ const preGame = document.getElementById("preGame");
 var api = "https://api.giphy.com/v1/gifs/search?";	
 var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
 var coffee = "&q=coffee";
-var dislike = "&q=dislike";
+var dislike = "&q=facepalm";
 var html;
 var chosenGif;
 
@@ -152,7 +152,6 @@ function resetPlayers() {
 // event listener for when 'Refresh list' is clicked, the resetPlayers function is called
 
 reset.addEventListener('click', resetPlayers);
-
 
 function setGif(value){
     fetchData(api + apiKey + value)
