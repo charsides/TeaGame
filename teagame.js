@@ -104,12 +104,18 @@ function pickBrewer() {
         } else if (allPlayers != "") {
             var brewer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
             preGame.style.display = "none";
-            console.log(brewer);
             reveal.style.display = "block";
             loser.style.display = "block";
             setTimeout( () => {
                 loser.innerHTML = brewer;
                 play.innerHTML = "Pick again";
+                fetchData(api + apiKey + dislike)
+                .then(data => {
+                    var randomGifNumber = Math.floor(Math.random() * data.data.length); 
+                    chosenGif = data.data[randomGifNumber].images.original.url;
+                    generateGif(chosenGif);
+                    console.log(data);
+                })
             }, 3000)
             } else {
                 toastr.options = noPlayers;
@@ -118,6 +124,13 @@ function pickBrewer() {
     } else if (play.innerHTML == "Pick again") {
         brewer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
         loser.innerHTML = brewer;
+        fetchData(api + apiKey + dislike)
+        .then(data => {
+            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
+            chosenGif = data.data[randomGifNumber].images.original.url;
+            generateGif(chosenGif);
+            console.log(data);
+        })
     }
 }
 
@@ -164,12 +177,12 @@ async function fetchData(url) {
 }
 
 fetchData(api + apiKey + coffee)
-.then(data => {
-    var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-    chosenGif = data.data[randomGifNumber].images.original.url;
-    generateGif(chosenGif);
-    console.log(data);
-})
+        .then(data => {
+            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
+            chosenGif = data.data[randomGifNumber].images.original.url;
+            generateGif(chosenGif);
+            console.log(data);
+        })
 
 function checkStatus(response) {
     if (response.ok) {
@@ -185,22 +198,3 @@ function generateGif(data) {
         `;
     gif.innerHTML = html;
 }
-
-
-// fetchData(api + apiKey + dislike)
-// .then(data => {
-//     randomGifNumber * data.data.length; 
-//     const chosenGif = data.data[randomGifNumber].images.original.url;
-//     generateDislike(chosenGif);
-//     console.log(data);
-// })
-
-
-// function generateDislike(data) {
-//     console.log('hi');
-//     html = `
-//         <img src='${data}'>
-//         `;
-//     gif.innerHTML = html;
-// }
-
