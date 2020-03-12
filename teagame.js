@@ -145,7 +145,7 @@ reset.addEventListener('click', resetPlayers);
 
 // Giphy API - coffee gif
 
-var api = "http://api.giphy.com/v1/gifs/search?";	
+var api = "https://api.giphy.com/v1/gifs/search?";	
 var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
 var coffee = "&q=coffee";
 var dislike = "&q=dislike";
