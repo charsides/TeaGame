@@ -146,6 +146,7 @@ function resetPlayers() {
     loser.innerHTML = "";
     pick.innerHTML = "Pick a brewer";
     preGame.style.display = "block";
+    input.value = "";
     setGif(coffee);
 }
 
