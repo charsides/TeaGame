@@ -9,6 +9,14 @@ const players = document.getElementById("players");
 const loser = document.getElementById("loser");
 const reveal = document.getElementById("reveal");
 const preGame = document.getElementById("preGame");
+// Giphy API - coffee gif variables
+var api = "https://api.giphy.com/v1/gifs/search?";	
+var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
+var coffee = "&q=coffee";
+var dislike = "&q=dislike";
+var html;
+var chosenGif;
+
 const noPlayers = {
     "closeButton": true,
     "debug": true,
@@ -109,13 +117,7 @@ function pickBrewer() {
             setTimeout( () => {
                 loser.innerHTML = brewer;
                 play.innerHTML = "Pick again";
-                fetchData(api + apiKey + dislike)
-                .then(data => {
-                    var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-                    chosenGif = data.data[randomGifNumber].images.original.url;
-                    generateGif(chosenGif);
-                    console.log(data);
-                })
+                setGif(dislike);
             }, 3000)
             } else {
                 toastr.options = noPlayers;
@@ -124,13 +126,7 @@ function pickBrewer() {
     } else if (play.innerHTML == "Pick again") {
         brewer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
         loser.innerHTML = brewer;
-        fetchData(api + apiKey + dislike)
-        .then(data => {
-            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-            chosenGif = data.data[randomGifNumber].images.original.url;
-            generateGif(chosenGif);
-            console.log(data);
-        })
+        setGif(dislike);
     }
 }
 
@@ -150,28 +146,23 @@ function resetPlayers() {
     loser.innerHTML = "";
     pick.innerHTML = "Pick a brewer";
     preGame.style.display = "block";
-    fetchData(api + apiKey + coffee)
-        .then(data => {
-            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-            chosenGif = data.data[randomGifNumber].images.original.url;
-            generateGif(chosenGif);
-            console.log(data);
-        })
+    setGif(coffee);
 }
 
 // event listener for when 'Refresh list' is clicked, the resetPlayers function is called
 
 reset.addEventListener('click', resetPlayers);
 
-// Giphy API - coffee gif
 
-var api = "https://api.giphy.com/v1/gifs/search?";	
-var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
-var coffee = "&q=coffee";
-var dislike = "&q=dislike";
-var html;
-var chosenGif;
-
+function setGif(value){
+    fetchData(api + apiKey + value)
+    .then(data => {
+        var randomGifNumber = Math.floor(Math.random() * data.data.length); 
+        chosenGif = data.data[randomGifNumber].images.original.url;
+        generateGif(chosenGif);
+        console.log(data);
+    })
+}
 async function fetchData(url) {
     try {
         const response = await fetch(url);
@@ -183,13 +174,7 @@ async function fetchData(url) {
     }
 }
 
-fetchData(api + apiKey + coffee)
-        .then(data => {
-            var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-            chosenGif = data.data[randomGifNumber].images.original.url;
-            generateGif(chosenGif);
-            console.log(data);
-        })
+setGif(coffee);
 
 function checkStatus(response) {
     if (response.ok) {
