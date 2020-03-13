@@ -36,7 +36,7 @@ p {
 input:focus,
 button:focus {
     outline-color: orangered; 
-    }
+}
 
 #btn button {
     padding: 20px;
@@ -79,7 +79,7 @@ button:focus {
     display: inline-block;
     animation: dotty steps(1,end) 3s ;
     content: '...';
-  }
+}
   
   @keyframes dotty {
     0%   { content: ''; }
@@ -87,7 +87,7 @@ button:focus {
     50%  { content: '..'; }
     75%  { content: '...'; }
     100% { content: '...'; }
-  }
+}
 
 #answer {
     margin: 30px;
