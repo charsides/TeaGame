@@ -9,7 +9,7 @@ const players = document.getElementById("players");
 const loser = document.getElementById("loser");
 const reveal = document.getElementById("reveal");
 const preGame = document.getElementById("preGame");
-// Giphy API - coffee gif variables
+// Giphy API - gif variables
 var api = "https://api.giphy.com/v1/gifs/search?";	
 var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
 var coffee = "&q=coffee";
@@ -33,7 +33,7 @@ const noPlayers = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-      };
+    };
 const onePlayer = {
     "closeButton": true,
     "debug": true,
@@ -50,7 +50,7 @@ const onePlayer = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-  };
+    };
   const emptyInput = {
     "closeButton": true,
     "debug": true,
@@ -67,7 +67,7 @@ const onePlayer = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-  };
+    };
 
 
 // event listener for clicking add button
@@ -153,6 +153,8 @@ function resetPlayers() {
 // event listener for when 'Refresh list' is clicked, the resetPlayers function is called
 
 reset.addEventListener('click', resetPlayers);
+
+// giphy api functions
 
 function setGif(value){
     fetchData(api + apiKey + value)
