@@ -3,12 +3,16 @@ body {
     color: white;
     text-align: center;
     font-family: monospace;
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
 
 #nameInput {
     height: auto;
-    width: 50%;
+    width: 60%;
     padding: 10px;
     text-align: center;
     margin-top: 20px;
@@ -49,6 +53,7 @@ button:focus {
     transition: 0.3s;
     border-radius: 5px;
     font-family: monospace;
+    margin-bottom: 10px;
 }
 
 #submit:hover,
@@ -68,11 +73,6 @@ button:focus {
     transition: 0.3s;
     border-radius: 5px;
     font-family: monospace;
-}
-
-#gif img {
-    max-height: 300px;
-    width: auto;
 }
 
 #reveal:after {
@@ -97,3 +97,4 @@ button:focus {
     height: 30px;
     display: none;
 }
+

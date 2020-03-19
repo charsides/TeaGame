@@ -160,7 +160,7 @@ function setGif(value){
     fetchData(api + apiKey + value)
     .then(data => {
         var randomGifNumber = Math.floor(Math.random() * data.data.length); 
-        chosenGif = data.data[randomGifNumber].images.original.url;
+        chosenGif = data.data[randomGifNumber].images.fixed_height.url;
         generateGif(chosenGif);
         console.log(data);
     })

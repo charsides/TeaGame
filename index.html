@@ -11,24 +11,25 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     </head>
     <body>
-        <h1>IT'S TIME FOR A CUPPA!</h1>
-        <div id="gif"></div>
-        <div id="preGame">
-            <h2>But who's going to make this round of drinks?</h2>
-            <p>Add names one at a time for the people in this brew round. Hit 'Pick a brewer' to draw a random name.</p>
-            <input type = "text" id = "nameInput" value = "" placeholder="Enter names here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter names here...'" autocomplete="off"/>
-            <button id="submit">Add</button>
-        </div>
-        <h2 id="players" style="display: none;">Players for this round are:</h2>
-        <ul></ul>
-        <div id="answer">
-            <h2 style="display: none;" id="reveal">And the brewer is</h2>
-            <h1 class="animated infinite tada delay-2s" id="loser"></h1>
-        </div>
-        <div id="btn">
-            <button id="pick">Pick a brewer</button>
-            <button id="reset">Refresh list</button>
-        </div>
+            <h1>IT'S TIME FOR A CUPPA!</h1>
+            <div id="gif"></div>
+            <div id="preGame">
+                <h2>But who's going to make this round of drinks?</h2>
+                <p>Add names one at a time for the people in this brew round. Hit 'Pick a brewer' to draw a random name.</p>
+                <input type = "text" id = "nameInput" value = "" placeholder="Enter names here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter names here...'" autocomplete="off"/>
+                <button id="submit">Add</button>
+            </div>
+            <h2 id="players" style="display: none;">Players for this round are:</h2>
+            <ul></ul>
+            <div id="answer">
+                <h2 style="display: none;" id="reveal">And the brewer is</h2>
+                <h1 class="animated infinite tada delay-2s" id="loser"></h1>
+            </div>
+            <div id="btn">
+                <button id="pick">Pick a brewer</button>
+                <button id="reset">Refresh list</button>
+            </div>
+
 
         <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
