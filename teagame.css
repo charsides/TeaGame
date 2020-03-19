@@ -5,10 +5,23 @@ body {
     font-family: monospace;
     padding-top: 50px;
     padding-bottom: 50px;
+    
+}
+
+#preGame {
     padding-left: 10px;
     padding-right: 10px;
 }
 
+#gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 90%;
+}
 
 #nameInput {
     height: auto;
@@ -16,7 +29,7 @@ body {
     padding: 10px;
     text-align: center;
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: monospace;
 }
 
@@ -98,3 +111,9 @@ button:focus {
     display: none;
 }
 
+@media (max-width: 425px) {
+
+    body {
+        padding-top: 30px;
+    }
+}
