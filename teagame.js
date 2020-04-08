@@ -89,13 +89,13 @@ function addPlayer() {
     let li = document.createElement("li");
     var newPlayer = input.value;
     if (newPlayer != "") {
-    newPlayer = newPlayer.charAt(0).toUpperCase() + newPlayer.slice(1);
-    allPlayers.push(newPlayer);
-    console.log(allPlayers);
-    players.style.display = "block";
-    li.innerHTML = newPlayer + ", ";
-    ul.appendChild(li);
-    input.value = "";
+        newPlayer = newPlayer.charAt(0).toUpperCase() + newPlayer.slice(1);
+        allPlayers.push(newPlayer);
+        console.log(allPlayers);
+        players.style.display = "block";
+        li.innerHTML = newPlayer + ", ";
+        ul.appendChild(li);
+        input.value = "";
     } else {
         toastr.options = emptyInput;
         toastr["info"]("Cannot add players, input field is empty", "No new player");
