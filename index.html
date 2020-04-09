@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="image" property="og:image" content="coffee.png">
@@ -13,13 +13,13 @@
 
     <body>
         <h1>IT'S TIME FOR A CUPPA!</h1>
-        <div id="gif"></div>
-        <div id="preGame">
+        <div id="gif" alt="gif"></div>
+        <section id="preGame">
             <h2>But who's going to make this round of drinks?</h2>
             <p>Add names one at a time for the people in this brew round. Hit 'Pick a brewer' to draw a random name.</p>
             <input type = "text" id = "nameInput" value = "" placeholder="Enter names here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter names here...'" autocomplete="off"/>
             <button id="submit">Add</button>
-        </div>
+        </section>
         <h2 id="players" style="display: none;">Players for this round are:</h2>
         <ul></ul>
         <div id="answer">
