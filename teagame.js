@@ -188,7 +188,7 @@ function checkStatus(response) {
 
 function generateGif(data) {
     html = `
-        <img src='${data}'>
+        <img src='${data}' alt="gif">
         `;
     gif.innerHTML = html;
 }
