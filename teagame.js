@@ -1,7 +1,7 @@
 var allPlayers = [];
 const gif = document.getElementById("gif");
 const submit = document.getElementById("submit");
-var input = document.getElementById("nameInput");
+const input = document.getElementById("nameInput");
 const ul = document.getElementsByTagName('ul')[0];
 const play = document.getElementById("pick");
 const reset = document.getElementById("reset");
@@ -10,10 +10,10 @@ const loser = document.getElementById("loser");
 const reveal = document.getElementById("reveal");
 const preGame = document.getElementById("preGame");
 // Giphy API - gif variables
-var api = "https://api.giphy.com/v1/gifs/search?";	
-var apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
-var coffee = "&q=coffee";
-var dislike = "&q=facepalm";
+const api = "https://api.giphy.com/v1/gifs/search?";	
+const apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
+const coffee = "&q=coffee";
+const dislike = "&q=facepalm";
 var html;
 var chosenGif;
 
@@ -87,7 +87,7 @@ input.addEventListener("keyup", function(event) {
 
 function addPlayer() {
     let li = document.createElement("li");
-    var newPlayer = input.value;
+    let newPlayer = input.value;
     if (newPlayer != "") {
         newPlayer = newPlayer.charAt(0).toUpperCase() + newPlayer.slice(1);
         allPlayers.push(newPlayer);
