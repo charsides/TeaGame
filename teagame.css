@@ -7,7 +7,7 @@ body {
     padding-bottom: 50px;
 }
 
-#preGame {
+#preGameText {
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -68,13 +68,13 @@ button:focus {
     margin-bottom: 10px;
 }
 
-#submit:hover,
+#submitButton:hover,
 #btn button:hover {
     background-color: antiquewhite;
     color: orangered;
 }
 
-#submit {
+#submitButton {
     padding: 10px;
     width: auto;
     background-color: orangered;
@@ -87,7 +87,7 @@ button:focus {
     font-family: monospace;
 }
 
-#reveal:after {
+#revealLoser:after {
     display: inline-block;
     animation: dotty steps(1,end) 3s ;
     content: '...';
@@ -101,11 +101,11 @@ button:focus {
     100% { content: '...'; }
 }
 
-#answer {
+#answerSection {
     margin: 30px;
 } 
 
-#loser {
+#loserName {
     height: 30px;
     display: none;
 }

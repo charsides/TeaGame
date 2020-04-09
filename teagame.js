@@ -1,19 +1,19 @@
 var allPlayers = [];
 const gif = document.getElementById("gif");
-const submit = document.getElementById("submit");
+const submit = document.getElementById("submitButton");
 const input = document.getElementById("nameInput");
 const ul = document.getElementsByTagName('ul')[0];
-const play = document.getElementById("pick");
-const reset = document.getElementById("reset");
-const players = document.getElementById("players");
-const loser = document.getElementById("loser");
-const reveal = document.getElementById("reveal");
-const preGame = document.getElementById("preGame");
+const play = document.getElementById("pickButton");
+const reset = document.getElementById("resetButton");
+const players = document.getElementById("playersList");
+const loser = document.getElementById("loserName");
+const reveal = document.getElementById("revealLoser");
+const preGameText = document.getElementById("preGameText");
 // Giphy API - gif variables
 const api = "https://api.giphy.com/v1/gifs/search?";	
 const apiKey = "&api_key=npwRMkXxt3amqE6cqXg4T4gI0sWHNqZm";
-const coffee = "&q=coffee";
-const dislike = "&q=facepalm";
+const coffeeGif = "&q=coffee";
+const dislikeGif = "&q=facepalm";
 var html;
 var chosenGif;
 
@@ -70,19 +70,6 @@ const onePlayer = {
     };
 
 
-// event listener for clicking add button
-
-submit.addEventListener('click', addPlayer);
-
-// event listener for pressing enter to submit new player
-
-input.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      submit.click();
-    }
-  });
-
 // function to add names inputted to the list of players and print to page
 
 function addPlayer() {
@@ -102,6 +89,19 @@ function addPlayer() {
     }
 };
 
+// event listener for clicking add button
+
+submit.addEventListener('click', addPlayer);
+
+// event listener for pressing enter to submit new player
+
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      submit.click();
+    }
+  });
+
 // function to randomly pick an element from the array of players
 
 function pickBrewer() {
@@ -111,13 +111,13 @@ function pickBrewer() {
             toastr["info"]("Please enter at least two player's names", "More players needed!")
         } else if (allPlayers != "") {
             var brewer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
-            preGame.style.display = "none";
+            preGameText.style.display = "none";
             reveal.style.display = "block";
             loser.style.display = "block";
             setTimeout( () => {
                 loser.innerHTML = brewer;
                 play.innerHTML = "Pick again";
-                setGif(dislike);
+                setGif(dislikeGif);
             }, 3000)
             } else {
                 toastr.options = noPlayers;
@@ -126,16 +126,16 @@ function pickBrewer() {
     } else if (play.innerHTML == "Pick again") {
         brewer = allPlayers[Math.floor(Math.random() * allPlayers.length)];
         loser.innerHTML = brewer;
-        setGif(dislike);
+        setGif(dislikeGif);
     }
 }
 
 
-// event listener for when 'Pick a brewer' is clicked, the pickBrewer function is called
+// event listener for when 'Pick a brewer' button is clicked, the pickBrewer function is called
 
 play.addEventListener('click', pickBrewer);
 
-// function to clear array and remove ul
+// function to clear array and hide ul
 
 function resetPlayers() {
     allPlayers.length = 0;
@@ -144,10 +144,10 @@ function resetPlayers() {
     reveal.style.display = "none";
     loser.style.display = "none";
     loser.innerHTML = "";
-    pick.innerHTML = "Pick a brewer";
-    preGame.style.display = "block";
+    play.innerHTML = "Pick a brewer";
+    preGameText.style.display = "block";
     input.value = "";
-    setGif(coffee);
+    setGif(coffeeGif);
 }
 
 // event listener for when 'Refresh list' is clicked, the resetPlayers function is called
@@ -176,7 +176,7 @@ async function fetchData(url) {
     }
 }
 
-setGif(coffee);
+setGif(coffeeGif);
 
 function checkStatus(response) {
     if (response.ok) {
